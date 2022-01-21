@@ -1,0 +1,213 @@
+body {
+    margin:0;
+    font-size: 15px;
+    /*font-family: 'Montserrat', sans-serif;*/
+    line-height: 1.3;
+    font-family: 'Saira', sans-serif;
+}
+
+*,
+*:before,
+*:after{
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin:0;
+}
+
+hr{
+    /*border: none;*/
+    /*border: 1px solid #C6C6C6;*/
+    border: none;
+    height: 0.01em;
+    background-color:black;
+}
+
+/*Container*/
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*** Header ***/
+.header{
+    padding-top: 15px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /*background-color: #A3DCFF;*/
+    background-color: #ffffff;
+    padding-bottom: 7px;
+}
+
+.header__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.sblog__logo{
+    width:45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+nav{
+    font-size: 16px;
+}
+
+.nav__link{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0 15px;
+    /*color: #fff;*/
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: inherit;
+    padding: 5px 0;
+}
+
+.get__started{
+    background-color: black;
+    color: #ffffff;
+    border-radius: 7px;
+    padding: 5px 10px;
+}
+
+
+/* ----- Intro -----*/
+.intro{
+    padding:20px 0;
+    margin-top: 60px;
+    display: block;
+    /*background-color: #A3DCFF;*/
+    /*background-color: #13E7D6;*/
+    background-color: #66F0A8;
+}
+
+.intro__inner{
+    /*height: auto;*/
+    /*width: 100px;*/
+    /*display: flex;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.inner__title{
+    font-size: 48px;
+    font-weight: 500;
+    width: 400px;
+}
+
+.inner__text{
+    font-size: 24px;
+    width: 500px;
+}
+
+.inner__left{
+    width: 60%;
+}
+
+.inner__right{
+    width: 40%;
+    padding-top: 20px;
+}
+
+.start__button{
+    font-family: 'Saira', sans-serif;
+    padding: 5px 10px;
+    float: right;
+    margin-right: 250px;
+    /*position: absolute;*/
+    top: 50%;
+    border: none;
+    background-color: #ffffff;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/*----- Top eight ------*/
+.top_eight_blogs{
+    margin-top: 25px;
+}
+
+.top__eight__head{
+    font-size:26px;
+    font-weight: 500;
+}
+
+.top__eight__by__two{
+    margin: 20px 0;
+    display: flex;
+}
+
+.top__eight__main{
+    display: inline-block;
+    width:50%;
+}
+
+.top__eight__number{
+    color:#B4B4B4;
+    font-weight: bold;
+    font-size: 36px;
+    margin-right: 5px;
+}
+
+
+.top__eight__img{
+    height: 120px;
+    width: 200px;
+}
+
+.top__eight__info{
+    margin-left: 10px;
+    display: inline-block;
+    width: 18.75rem;
+    top:0;
+    position: relative;
+    vertical-align: top;
+    height: 88%;
+}
+
+.top__eight__title{
+    font-size:1rem;
+    font-weight: 500;
+
+}
+
+.top__eight__author__date{
+  margin-top: 1rem;
+}
+
+.top__eight__author__name{
+    font-size: 1rem;
+    color:#4B0082;
+    font-weight: 500;
+}
+
+.top__eight__blog__date{
+    position: relative;
+    float: right;
+    margin-right: 1rem;
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+
+
+

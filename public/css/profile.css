@@ -1,0 +1,129 @@
+/*----Personal Page---*/
+.avatar{
+    width:50px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.search_main{
+    display: inline-block;
+    margin: auto;
+    width: 50%;
+    /*float: left;*/
+    /*width: 50%;*/
+    /*align-items: center;*/
+
+}
+
+.search__bar{
+    width: 20rem;
+    border-radius: 7px;
+    border: none;
+    padding:7px;
+    font-size: 1rem;
+    font-family: 'Saira', sans-serif;
+    outline: none;
+    caret-shape: block;
+    color:#939393;
+}
+
+
+.discover__main{
+    padding:20px 0;
+    margin-top: 80px;
+    display: block;
+    /*background-color: #A3DCFF;*/
+    /*background-color: #13E7D6;*/
+    /*background-color: #66F0A8;*/
+}
+
+.discover__title{
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.discover__block{
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+.discover{
+    font-size: 1rem;
+    background-color:#66F0A8;
+    padding: 7px 16px;
+    border-radius: 7px;
+    font-weight: 500;
+    margin-right: 10px;
+    display: inline-block;
+    margin-top: 7px;
+    cursor: pointer;
+}
+
+
+/* Recommended */
+.recommend__main{
+    padding:25px 0;
+    display: block;
+}
+
+.recommend__title{
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.test__line{
+    display: block;
+    content:"" ;
+    width: 100%;
+    /*height: 20px;*/
+    border: 0.1em solid red;
+}
+
+.blog__card{
+    border: 1px solid #C6C6C6;
+    height: auto;
+    width: 700px;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.blog__author{
+    /*background-color: #2563eb;*/
+    height: 50px;
+}
+
+.blog__avatar{
+    width:45px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.blog__author__name{
+    margin-bottom: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 5px;
+    font-weight: 500;
+    /*line-height: normal;*/
+}
+
+.kebab__menu{
+    width: 18px;
+    height: 18px;
+    float: right;
+    margin-top: 12px;
+}
+
+.blog__info{
+
+}
+
+.blog__img{
+    height: 130px;
+    width: 200px;
+}
