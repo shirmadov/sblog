@@ -56,6 +56,11 @@ hr{
     font-weight: 700;
 }
 
+.sblog__logo__link{
+    text-decoration: none;
+    color: #000000;
+}
+
 .sblog__logo{
     width:45px;
     height: 45px;
