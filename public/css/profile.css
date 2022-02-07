@@ -1,9 +1,104 @@
 /*----Personal Page---*/
+
+/*** Avatar Menu ***/
+nav{
+    position: fixed;
+    right: 330px;
+}
+
 .avatar{
     width:50px;
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
+    /*position: absolute;*/
+}
+
+.drop__account{
+    position: relative;
+    background-color: #2563eb;
+    /*height: 600px;*/
+    /*width: 600px;*/
+}
+
+
+.drop__menu{
+    position: absolute;
+    /*left: 69%;*/
+    /*top: 99%;*/
+
+    top: 55px;
+    right: -12px;
+    width: 250px;
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+    border: 1px solid #C6C6C6;
+    padding: 10px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.drop__menu::before{
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    position: absolute;
+    transform: rotate(45deg);
+    left: 82%;
+    top: -2%;
+}
+
+.drop__menu.onOf{
+    visibility: visible;
+    opacity: 1;
+    /*top: 55px;*/
+    right: -12px;
+}
+
+.drop__avatar{
+    width:50px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.drop__user__name{
+    padding-left: 7px;
+    position: absolute;
+    display: inline-block;
+    margin-top:5px ;
+    font-size: 1rem;
+}
+
+.drop__user__email{
+    font-size: 0.8rem;
+    color:#696969;
+    padding-left: 7px;
+}
+
+ul{
+    margin-top: 0;
+    padding: 10px;
+}
+
+.drop__settings li{
+    list-style: none;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #000000;
+    position: relative;
+}
+
+.drop__settings li:hover{
+    text-decoration: underline;
 }
 
 .search_main{
@@ -74,20 +169,12 @@
     font-weight: 500;
 }
 
-.test__line{
-    display: block;
-    content:"" ;
-    width: 100%;
-    /*height: 20px;*/
-    border: 0.1em solid red;
-}
-
 .blog__card{
     border: 1px solid #C6C6C6;
-    height: auto;
+    /*height: 200px;*/
     width: 700px;
     margin: 15px 0;
-    padding: 10px;
+    padding: 7px;
     border-radius: 7px;
 }
 
@@ -109,21 +196,134 @@
     vertical-align: middle;
     padding-left: 5px;
     font-weight: 500;
+    font-size: 1rem;
     /*line-height: normal;*/
 }
 
 .kebab__menu{
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     float: right;
     margin-top: 12px;
 }
 
-.blog__info{
+.blog__section{
+    display: flex;
+}
 
+.blog__info{
+    padding-left: 10px;
+    position: relative;
 }
 
 .blog__img{
     height: 130px;
     width: 200px;
 }
+
+.blog__title{
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 450px;
+}
+
+.blog__start__text{
+    display: block;
+    padding-top: 10px;
+    font-size:1rem;
+    color: #696969;
+    width: 450px;
+}
+
+.blog__theme{
+   position: absolute;
+    bottom: 0;
+    background-color:#DCDCDC;
+    border-radius: 7px;
+    padding: 3px;
+    font-size: 14px;
+    color: #696969;
+}
+
+.blog__like__date{
+    padding-top: 10px;
+    display: block;
+    position: relative;
+}
+
+.blog__like{
+    display: inline;
+    width: 1.5rem;
+    height: 1.5rem;
+    fill:#F62B2B;
+    stroke: #F62B2B;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.blog__amount__like{
+    margin-top: 3px;
+    padding-left: 10px;
+    position: absolute;
+    font-size: 0.8rem;
+}
+
+.blog__date{
+    float: right;
+    font-size: 0.8rem;
+}
+
+
+/* EDitor Blog */
+::placeholder {
+    color: #C6C6C6;
+
+}
+
+.editor__main{
+    margin-top: 80px;
+    padding:20px 0;
+}
+
+.editor__wrapper{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.editor__line:hover .editor__plus{
+    display: inline-block;
+}
+
+.editor__text__title{
+    border: none;
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: 'Saira', sans-serif;
+    outline: none;
+    width: 80%;
+    caret-color: #C6C6C6;
+}
+
+.editor__text{
+    border: none;
+    font-size: 1.2rem;
+    font-family: 'Saira', sans-serif;
+    outline: none;
+    width: 80%;
+    display: inline-block;
+}
+
+.editor__plus__main{
+    display: inline-block;
+    width: 40px;
+}
+
+.editor__plus{
+    display: none;
+    vertical-align:-3px;
+    margin-right: 15px;
+}
+
+

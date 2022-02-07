@@ -24,6 +24,18 @@ Route::get('/', function () {
 });
 
 Route::get('/test', [BlogController::class, 'test']);
+Route::get('/set_cache', [BlogController::class, 'setCache']);
+
+//Route::get('/editor', function(){
+//    return view('user.editor.editor');
+//})->name('editor');
+
+Route::prefix('editor')->middleware(['auth'])->group(function(){
+   Route::get('/', [BlogController::class,'index'])->name('editor');
+   Route::post('/create_line', [BlogController::class,'createLine'])->name('create_line');
+});
+
+
 
 Route::get('/dashboard', function () {
     return view('user.index');
