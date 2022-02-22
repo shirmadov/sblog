@@ -326,4 +326,32 @@ ul{
     margin-right: 15px;
 }
 
+.editor__publish__btn{
+
+    font-family: 'Saira', sans-serif;
+    padding: 5px 10px;
+    font-size: 16px;
+    /*background-color: #00d2be;*/
+    /*background-color: #66F0A8;*/
+    border: 1px solid;
+    border-radius:7px ;
+    cursor: pointer;
+    display: block;
+    float: right;
+}
+
+.editor__btn{
+    height: 50px;
+}
+
+.editor__publish__btn{
+    margin-bottom: 50px;
+    display: block;
+    background-color: #ffffff;
+    /*height: 50px;*/
+}
+
+
+
+
 
