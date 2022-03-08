@@ -19,27 +19,28 @@
                    <button class="editor__publish__btn js__editor__publish__btn">Publish</button>
                </div>
                <form id="editorForm" class="editorForm js__editor__form" action="" method="POST">
-
                    <div class="editor__line js__editor__line">
-                       <div class="editor__plus__main">
-                           <svg class="editor__plus" xmlns="http://www.w3.org/2000/svg" width="35" height="24" viewBox="0 0 40 32" fill="none">
-                               <rect x="0.5" y="0.75" width="39" height="30.5" rx="6.5" fill="#FFFBFB" stroke="black"/>
-                               <line x1="10" y1="15.5" x2="30" y2="15.5" stroke="black"/>
-                               <line x1="20.1667" y1="23.752" x2="20.1667" y2="7" stroke="black"/>
-                           </svg>
-                       </div>
-                       <input id="myTextField" name="text__line__0" class="editor__text__title js__editor__text" data-order="1" type="text" placeholder="Title blog">
+                      <div class="editor__settings js__editor__settings">
+                          <div class="editor__plus__main js__editor__plus__main">
+                              <svg class="editor__plus js__editor__plus" xmlns="http://www.w3.org/2000/svg" width="35" height="24" viewBox="0 0 40 32" fill="none">
+                                  <rect x="0.5" y="0.75" width="39" height="30.5" rx="6.5" fill="#FFFBFB" stroke="black"/>
+                                  <line x1="10" y1="15.5" x2="30" y2="15.5" stroke="black"/>
+                                  <line class="js__editor__plus__stroke" x1="20.1667" y1="23.752" x2="20.1667" y2="7" stroke="black"/>
+                              </svg>
+                          </div>
+                          <div class="editor__img__main js__editor__img__main">
+                              <svg class="editor__img js__editor__img" xmlns="http://www.w3.org/2000/svg" width="35" height="24" viewBox="0 0 38 26" fill="none">
+                                  <rect x="0.5" y="0.899902" width="36" height="24.2" rx="6.5" fill="#FFFBFB" stroke="black"/>
+                                  <rect x="9.5" y="6.5" width="18" height="13" stroke="black"/>
+                                  <path d="M10 19.5L16.5 12.5" stroke="black"/>
+                                  <path d="M15.7553 12.6974L19.5 15.5" stroke="black"/>
+                                  <path d="M18.9397 15.5114L27.4714 8.99998" stroke="black"/>
+                              </svg>
+                          </div>
+                      </div>
+                       <input type="text" id="myTextField" name="text__line__0" class="editor__text__title js__editor__text" data-order="1"  placeholder="Title">
                    </div>
-{{--                   <div class="editor__line js__editor__line">--}}
-{{--                       <div class="editor__plus__main">--}}
-{{--                           <svg class="editor__plus" xmlns="http://www.w3.org/2000/svg" width="35" height="24" viewBox="0 0 40 32" fill="none">--}}
-{{--                               <rect x="0.5" y="0.75" width="39" height="30.5" rx="6.5" fill="#FFFBFB" stroke="black"/>--}}
-{{--                               <line x1="10" y1="15.5" x2="30" y2="15.5" stroke="black"/>--}}
-{{--                               <line x1="20.1667" y1="23.752" x2="20.1667" y2="7" stroke="black"/>--}}
-{{--                           </svg>--}}
-{{--                       </div>--}}
-{{--                       <input class="editor__text js__editor__text" name="message2" type="text" data-order="2" placeholder="Write your article">--}}
-{{--                   </div>--}}
+
                </form>
            </div>
 
