@@ -46,7 +46,7 @@ class BlogController extends Controller
     }
 
     public function saveStory(Request $request){
-//        dd($request->all());
+        dd($request->all());
         try {
 
 

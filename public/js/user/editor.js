@@ -1,4 +1,5 @@
 let app_url = location.origin;
+let open_plus = false;
 // let editor__text = document.querySelectorAll('.js__editor__text');
 // let count = 0;
 function keyDown() {
@@ -14,17 +15,31 @@ function keyDown() {
                 count++;
 
                 let editor_main = item.parentElement;
-                let plus_icon = '   <div class="editor__plus__main">\n' +
-                    '                       <svg class="editor__plus" style="margin-right: 30px;" xmlns="http://www.w3.org/2000/svg" width="35" height="24" viewBox="0 0 40 32" fill="none">\n' +
+                let plus_icon = '   <div class="editor__plus__main js__editor__plus__main">\n' +
+                    '                       <svg class="editor__plus js__editor__plus" style="margin-right: 30px;" xmlns="http://www.w3.org/2000/svg" width="35" height="24" viewBox="0 0 40 32" fill="none">\n' +
                     '                           <rect x="0.5" y="0.75" width="39" height="30.5" rx="6.5" fill="#FFFBFB" stroke="black"/>\n' +
                     '                           <line x1="10" y1="15.5" x2="30" y2="15.5" stroke="black"/>\n' +
-                    '                           <line x1="20.1667" y1="23.752" x2="20.1667" y2="7" stroke="black"/>\n' +
+                    '                           <line class="js__editor__plus__stroke" x1="20.1667" y1="23.752" x2="20.1667" y2="7" stroke="black"/>\n' +
                     '                       </svg>\n' +
-                    '                   </div>'
+                    '                   </div>' +
+                    '  <div class="editor__img__main js__editor__img__main">\n' +
+                    '                           <svg class="editor__img js__editor__img" xmlns="http://www.w3.org/2000/svg" width="35" height="24" viewBox="0 0 38 26" fill="none">\n' +
+                    '                               <rect x="0.5" y="0.899902" width="36" height="24.2" rx="6.5" fill="#FFFBFB" stroke="black"/>\n' +
+                    '                               <rect x="9.5" y="6.5" width="18" height="13" stroke="black"/>\n' +
+                    '                               <path d="M10 19.5L16.5 12.5" stroke="black"/>\n' +
+                    '                               <path d="M15.7553 12.6974L19.5 15.5" stroke="black"/>\n' +
+                    '                               <path d="M18.9397 15.5114L27.4714 8.99998" stroke="black"/>\n' +
+                    '                           </svg>\n' +
+                    '                       </div> '
+
+
 
                 let create_div = document.createElement('div');
+                let create_div_settings = document.createElement('div');
                 let create_input = document.createElement('input');
 
+                create_div_settings.classList.add('editor__settings');
+                create_div_settings.classList.add('js__editor__settings');
                 create_div.classList.add('editor__line');
                 create_div.classList.add('js__editor__line');
                 create_input.placeholder = "New One";
@@ -33,7 +48,9 @@ function keyDown() {
                 create_input.classList.add('editor__text');
                 create_input.classList.add('js__editor__text');
 
-                create_div.innerHTML = plus_icon;
+                create_div_settings.innerHTML = plus_icon;
+                create_div.append(create_div_settings)
+
                 create_div.append(create_input);
 
                 editor_main.insertAdjacentElement('afterend', create_div);
@@ -117,25 +134,6 @@ function removeLine(){
     })
 }
 
-function keyDown2(){
-    addEventListener('keydown', (event)=>{
-
-        // e.key == 'Enter'
-
-
-        let editor__text = document.querySelectorAll('.js__editor__text');
-        console.log(editor__text)
-        editor__text.forEach((item, index)=>{
-            if (!item) return;
-            console.log(item)
-
-        })
-
-
-    });
-
-}
-
 function publishStory(){
     let my_form = document.getElementById('editorForm');
 
@@ -151,11 +149,36 @@ function publishStory(){
     })
 }
 
+function openPlus(){
+    document.addEventListener('click', async(e)=>{
+        let target = e.target;
+        if (!target.closest('.js__editor__settings')) return;
+
+        let get_plus = target.closest('.js__editor__plus');
+        let get_settings = target.closest('.js__editor__settings');
+        let get_img = get_settings.querySelector('.js__editor__img__main')
+        let get_stroke = get_plus.querySelector('.js__editor__plus__stroke');
+
+        if(open_plus == false){
+            get_stroke.classList.add('editor__plus__stroke');
+            get_img.style.display ='inline-block';
+            open_plus = true;
+        }else{
+            get_stroke.classList.remove("editor__plus__stroke");
+            get_img.style.display ='none';
+            open_plus = false;
+        }
+
+    });
+}
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
     const csrfToken = document.querySelector('[name=csrf-token]').content;
     keyDown()
     publishStory()
+    openPlus()
 
 })
