@@ -45,6 +45,7 @@ function keyDown() {
                 create_input.placeholder = "New One";
                 create_input.type = 'text';
                 create_input.style.marginLeft = '4px';
+                create_input.name = 'text__line__'+editor__text.length;
                 create_input.classList.add('editor__text');
                 create_input.classList.add('js__editor__text');
 
@@ -94,6 +95,7 @@ async function createLine() {
     }
 
 }
+
 
 
 async function sendData(formData, url) {
@@ -154,22 +156,45 @@ function openPlus(){
         let target = e.target;
         if (!target.closest('.js__editor__settings')) return;
 
+        let get_parent = target.closest('.js__editor__settings').parentElement;
+        let get_input = get_parent.querySelector('.js__editor__text');
         let get_plus = target.closest('.js__editor__plus');
         let get_settings = target.closest('.js__editor__settings');
-        let get_img = get_settings.querySelector('.js__editor__img__main')
-        let get_stroke = get_plus.querySelector('.js__editor__plus__stroke');
+        let get_img = (get_settings != null)?get_settings.querySelector('.js__editor__img__main'):null;
+        let get_stroke = (get_plus != null)?get_plus.querySelector('.js__editor__plus__stroke'):null;
 
-        if(open_plus == false){
+
+        if(open_plus == false && (get_img != null && get_stroke !=null)){
             get_stroke.classList.add('editor__plus__stroke');
             get_img.style.display ='inline-block';
+            get_input.placeholder = ''
             open_plus = true;
-        }else{
+        }else if(get_img != null && get_stroke != null){
             get_stroke.classList.remove("editor__plus__stroke");
             get_img.style.display ='none';
             open_plus = false;
         }
 
     });
+}
+
+function textToImg(){
+    // document.addEventListener('click', async)
+}
+
+function readURL(input) {
+    console.log(input.files,input.files[0])
+    if (input.files && input.files[0]) {
+        console.log('Came');
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah')
+                .attr('src', e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }
 
 
@@ -180,5 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
     keyDown()
     publishStory()
     openPlus()
+
 
 })

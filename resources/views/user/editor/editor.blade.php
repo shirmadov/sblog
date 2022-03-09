@@ -19,6 +19,8 @@
                    <button class="editor__publish__btn js__editor__publish__btn">Publish</button>
                </div>
                <form id="editorForm" class="editorForm js__editor__form" action="" method="POST">
+                   <input class="editor__text__file js__editor__file" onchange="readURL(this)" type="file">
+                   <img id="blah" src="http://placehold.it/180" alt="your image" />
                    <div class="editor__line js__editor__line">
                       <div class="editor__settings js__editor__settings">
                           <div class="editor__plus__main js__editor__plus__main">
@@ -49,7 +51,7 @@
 @endsection
 
 @section('js')
-    <script type="module" src="{{asset('js/user/editor.js')}}"></script>
+    <script src="{{asset('js/user/editor.js')}}"></script>
 <script>
     const dragArea = document.querySelector('.editorForm');
     new Sortable(dragArea, {
