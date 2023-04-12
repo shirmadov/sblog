@@ -2,28 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Carbon;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
     public function test(){
-        echo addcslashes('Sapa', 'A..z');
+
+        $message = 'privet';
+
+        $example = function () use(&$message){
+          var_dump($message);
+        };
+
+        $example();
+
+
+
     }
 
     public function index(){
-        $user = \Auth()->user();
 
-        if(\Cache::has('user-editor-'.$user->id)){
+        try {
+            $blogs = Blog::get();
 
+            return view('main.index',compact('blogs'));
+        }catch(\Exception $e){
+            return $e->getMessage();
         }
 
-//        dd(json_decode(\Cache('user-editor-'.$user->id)));
-        return view('user.editor.editor');
+    }
+
+    public function getStory($slug){
+
+        try {
+              $story = Blog::where('slug_name',$slug)->first();
+              return view('main.blog',compact('story'));
+        }catch(\Exception $e){
+            return $e->getMessage();
+        }
+
+
     }
 
 
@@ -46,7 +71,7 @@ class BlogController extends Controller
     }
 
     public function saveStory(Request $request){
-//        dd($request->all());
+        dd($request->all());
         try {
 
 

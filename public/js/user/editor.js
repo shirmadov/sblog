@@ -33,15 +33,14 @@ function keyDown() {
                     '                       </div> '
 
 
-
                 let create_div = document.createElement('div');
                 let create_div_settings = document.createElement('div');
                 let create_input = document.createElement('input');
 
-                create_div_settings.classList.add('editor__settings');
-                create_div_settings.classList.add('js__editor__settings');
                 create_div.classList.add('editor__line');
                 create_div.classList.add('js__editor__line');
+                create_div_settings.classList.add('editor__settings');
+                create_div_settings.classList.add('js__editor__settings');
                 create_input.placeholder = "New One";
                 create_input.type = 'text';
                 create_input.style.marginLeft = '4px';
@@ -58,8 +57,6 @@ function keyDown() {
                 create_input.focus();
 
                 keyDown()
-
-
             } else if (event.keyCode == 40 && index + 1 < editor__text.length) {
                 editor__text[index + 1].focus();
             } else if (event.keyCode == 38 && index - 1 > 0) {
@@ -93,10 +90,7 @@ async function createLine() {
         form.insertAdjacentHTML('beforeend', response.content);
         // keyDown();
     }
-
 }
-
-
 
 async function sendData(formData, url) {
     try {
@@ -116,9 +110,7 @@ async function sendData(formData, url) {
     } catch (e) {
         console.log('Error:', e);
     }
-
 }
-
 
 function removeLine(){
     document.addEventListener('keydown', (e)=>{
@@ -156,6 +148,7 @@ function openPlus(){
         let target = e.target;
         if (!target.closest('.js__editor__settings')) return;
 
+        closeAllPLus();
         let get_parent = target.closest('.js__editor__settings').parentElement;
         let get_input = get_parent.querySelector('.js__editor__text');
         let get_plus = target.closest('.js__editor__plus');
@@ -163,13 +156,14 @@ function openPlus(){
         let get_img = (get_settings != null)?get_settings.querySelector('.js__editor__img__main'):null;
         let get_stroke = (get_plus != null)?get_plus.querySelector('.js__editor__plus__stroke'):null;
 
-
         if(open_plus == false && (get_img != null && get_stroke !=null)){
+            console.log('OPen')
             get_stroke.classList.add('editor__plus__stroke');
             get_img.style.display ='inline-block';
             get_input.placeholder = ''
             open_plus = true;
         }else if(get_img != null && get_stroke != null){
+            console.log('Close')
             get_stroke.classList.remove("editor__plus__stroke");
             get_img.style.display ='none';
             open_plus = false;
@@ -178,33 +172,94 @@ function openPlus(){
     });
 }
 
+function closeAllPLus(){
+    let get_imgs = document.querySelectorAll('.js__editor__img__main');
+    let get_strokes = document.querySelectorAll('.js__editor__plus__stroke');
+    get_imgs.forEach(function(item){
+        item.style.display ='none';
+    })
+    get_strokes.forEach(function(item){
+        item.classList.remove("editor__plus__stroke");
+    })
+    open_plus = false;
+}
+
+function mouseOver(){
+    let all_input = document.querySelectorAll('.js__editor__text');
+
+    all_input.forEach((item, index)=>{
+        item.addEventListener('focus', ()=>{
+            closeAllPLus()
+        })
+    })
+
+}
+
+
 function textToImg(){
     // document.addEventListener('click', async)
 }
 
-function readURL(input) {
-    console.log(input.files,input.files[0])
-    if (input.files && input.files[0]) {
-        console.log('Came');
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#blah')
-                .attr('src', e.target.result);
-        };
-
-        reader.readAsDataURL(input.files[0]);
+function showPreview(event){
+    if(event.target.files.length > 0){
+        var src = URL.createObjectURL(event.target.files[0]);
+        var preview = document.getElementById("file-ip-1-preview");
+        preview.src = src;
+        preview.style.display = "block";
     }
+}
+
+function createImg(){
+    document.addEventListener('click', (e)=>{
+        var target = e.target;
+        if(!target.closest('.js__editor__img__main')) return;
+
+        let get_editor_line = target.closest('.js__editor__line')
+        let get_editor_settings = target.closest('.js__editor__settings')
+        let create_div_img = document.createElement('div');
+        let create_input = document.createElement('input');
+        let create_img = document.createElement('img');
+
+        create_div_img.classList.add('editor__preview');
+        create_div_img.classList.add('js__editor__preview');
+        create_input.type = 'file';
+        create_input.hidden = true;
+        create_input.id = 'file-ip-1';
+        create_input.accept = 'image/*';
+        create_input.onchange = function showPreview(event) {
+            if (event.target.files.length > 0) {
+                var src = URL.createObjectURL(event.target.files[0]);
+                var preview = document.getElementById("file-ip-1-preview");
+                preview.src = src;
+                preview.style.display = "block";
+            }
+        };
+        create_img.classList.add('editor__line__img');
+        create_img.id = 'file-ip-1-preview';
+
+
+        create_div_img.append(create_img);
+        create_div_img.append(create_input);
+        get_editor_line.insertBefore(create_div_img,get_editor_line.children[0]);
+
+
+        create_input.click();
+        get_editor_settings.click();
+
+
+
+    });
+
 }
 
 
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const csrfToken = document.querySelector('[name=csrf-token]').content;
+    // const csrfToken = document.querySelector('[name=csrf-token]').content;
     keyDown()
     publishStory()
     openPlus()
-
-
+    createImg()
+    mouseOver()
 })

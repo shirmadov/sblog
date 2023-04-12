@@ -17,11 +17,25 @@
         @else
             <link rel="stylesheet" href="/css/profile.css?v={{ Config::get('app.media_files_version') }}">
         @endguest
+
         <link rel="stylesheet" href="/css/main.css?v={{ Config::get('app.media_files_version') }}">
+        <link rel="stylesheet" href="/css/menu.css?v={{ Config::get('app.media_files_version') }}">
+
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Saira:wght@100;400;500;700&display=swap" rel="stylesheet">
 
+
+        <link rel="stylesheet" href="/css/profile.css?v={{ Config::get('app.media_files_version') }}">
+        @if(Route::currentRouteName() == '/' ||
+            Route::currentRouteName() == '/blog/{title}' )
+
+        @else
+
+        @endif
+
+        @yield('css')
     <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
