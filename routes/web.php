@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\EditorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,10 @@ Route::get('/', function () {
 
 });
 
+
+
+Route::get('/', [BlogController::class, 'index'])->name('/');
+Route::get('/blog/{title?}', [BlogController::class, 'getStory'])->name('/blog/{title}');
 Route::get('/test', [BlogController::class, 'test']);
 Route::get('/set_cache', [BlogController::class, 'setCache']);
 Route::get('/get_cache', [BlogController::class, 'getCache']);
@@ -31,10 +36,13 @@ Route::get('/get_cache', [BlogController::class, 'getCache']);
 //    return view('user.editor.editor');
 //})->name('editor');
 
+
+
 Route::prefix('editor')->middleware(['auth'])->group(function(){
-   Route::get('/', [BlogController::class,'index'])->name('editor');
-   Route::post('/create_line', [BlogController::class,'createLine'])->name('create_line');
-   Route::post('/save_story', [BlogController::class,'saveStory'])->name('save_story');
+   Route::get('/', [EditorController::class,'index'])->name('editor');
+   Route::post('/publish', [EditorController::class,'publish'])->name('publish');
+   Route::post('/create_line', [EditorController::class,'createLine'])->name('create_line');
+   Route::post('/save_story', [EditorController::class,'saveStory'])->name('save_story');
 });
 
 
